@@ -1,0 +1,43 @@
+@import "compass";
+
+@include global-reset;
+
+h3 {
+  background: #F7F7F7;
+  font-weight: bold!important;
+  margin: 0.5em 0 0!important;
+  padding: 5px;
+  border: solid #DDD;
+  border-width: 1px 0;
+}
+.section {
+  background:#FFFFFF;
+  font-size: 90%;
+  text-indent: 10px;
+  border-bottom: 1px solid #DDD;
+  padding:0.4em 0.4em 1em 0.4em;
+}
+.paragraph {
+  text-indent: 5px;
+  background:#FFFFFF;
+  font-size: 90%;
+  padding: 0 0.4em 0.1em 0.4em;
+}
+
+.section_head {
+  display: block;
+  font-weight: bold;
+  color:#666;
+  text-align:left;
+  text-transform:capitalize;
+  width: 100%;
+  padding:1em 0.1em 0.1em 1em;
+}
+
+.photo {
+  background-color: #000;
+  text-align: center;
+  color: #999;
+  padding: 0.5em;
+}
+
