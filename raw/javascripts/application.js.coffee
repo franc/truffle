@@ -3,6 +3,7 @@
 #= require "lib/backbone.js"
 #= require_self
 #= require "modules/homeview"
+#= require "modules/slideshow"
 
 root = exports ? this
 
@@ -32,6 +33,7 @@ class Application
       @trigger("application:start")
     else
       @log(@module('homeView'))
+      @log(@module('slideShow'))
       @trigger("route:home")
   log: (msg) ->
     #TODO middlman config boolean flag to decide how/if to log
@@ -44,6 +46,10 @@ class Application
     if !@modules[name]?
       @modules[name] = mod  
     return @modules[name]
+  showPage: (id) ->
+    $('#pages div').hide()
+    $("#pages div##{id}").show()
+
 
 root.application = _.extend(new Application(), Backbone.Events)
 root.application.bind("application:start", -> 

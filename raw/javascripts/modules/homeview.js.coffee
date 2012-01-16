@@ -1,7 +1,8 @@
 root = exports ? this
 
 routes = {
-  home: "route:home"  
+  home: "route:home"
+  slides: "route:slides"  
 }
 
 class HomeView extends Backbone.View
@@ -16,16 +17,22 @@ class HomeView extends Backbone.View
     #console.log @options.el
     @el = @options.el
     @links = []
+    HomeView.prototype["event_hsh"] = {}
     for own link, event of @options.link_opts
+      HomeView.prototype["event_hsh"]["#{i}"] = event
       id = "link_#{i}"
       @links.push "<li><a id='#{id}' class='homeView_link'>#{link}</a></li>"
       #add new event function to the prototype  
-      HomeView.prototype["event_func_#{i}"] = -> 
-        root.application.trigger(event)
+      HomeView.prototype["event_func_#{i}"] = @event_func(i) 
       #sets click event for link to new event function that will trigger event on application
       @events["click ##{id}"] = "event_func_#{i}"
       i += 1
     return @
+
+  event_func: (i) ->
+    -> 
+      root.application.trigger HomeView.prototype["event_hsh"]["#{i}"]
+
 
   template: _.template("""
 <h3> HOME </h3> 
@@ -55,4 +62,5 @@ root.application.bind("application:launch", ->
 root.application.bind "route:home", ->
   @log('route:home')
   @module("homeView").render()
+  root.application.showPage('homePage')
 ,root.application
