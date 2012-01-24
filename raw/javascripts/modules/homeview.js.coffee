@@ -7,6 +7,7 @@ routes = {
 
 class HomeView extends Backbone.View
   events: {}
+  el: "#homePage"
   links: []
   constructor: ->
     super

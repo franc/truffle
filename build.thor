@@ -34,6 +34,12 @@ class Build < Thor::Group
     puts "."
   end
 
+  def copy_images
+    puts "copy images"
+    FileUtils.cp_r(@raw_dir + "/images", @output_dir)
+    puts "."
+  end
+
   def copy_template
     puts "copy template"
     FileUtils.cp([@raw_dir + "/layout.erb", @raw_dir + "/index.html.erb"], @output_dir)
@@ -50,14 +56,13 @@ class Build < Thor::Group
     puts "."
   end
 
-=begin
+
   def get_app_config
     puts "fetching config"
     conf = YAML::load( File.open(@config_dir + "/" + 'apps.yml') )
     @app_config = conf[app]
     puts "."
   end
-
 
   def create_json_data
     puts "creating coffeescript data files"
@@ -93,6 +98,7 @@ class Build < Thor::Group
       end
 
       data.each do |identifier, data_hash|
+        raise data_hash.to_json
         HashToCS.convert(data_hash, "  ", proc)
       end
       f.puts "]"
@@ -101,7 +107,6 @@ class Build < Thor::Group
     end
     puts "."
   end
-=end
 
   def done
     puts "done!"

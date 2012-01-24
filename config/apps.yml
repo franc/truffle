@@ -1,0 +1,18 @@
+introduction:
+  slides:
+    - id: 0
+      caption: Building 'static' HTML5 applications.
+      content: >
+        <p>using Thor & Middleman to manage multiple similar CoffeeScript & Backbone powered applications. 
+        <p>@francpaul</p>
+        <p>francois@rails.co.za</p>
+    - id: 1
+      caption: Frustration
+      content: >
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      

@@ -1,121 +1,58 @@
 root = exports ? this
 
-root.application.Slide = Backbone.Model.extend(
+class root.application.Slide extends Backbone.Model
   defaults: 
     id: 1
     headline: 'welcome to the slideshow'
     layout: 'right'
-  show: ->
+  show: =>
     root.application.log 'slide.show'
-    root.application.log @getEl()
+    #root.application.log @getEl()
     @getEl().show()
   getEl: =>
     $("#slide-#{@id}")
-  getControl: =>
-    $('.jump-to').eq(@id - 1)
-)
+  #getControl: =>
+  #  $('.jump-to').eq(@id)
 
-root.application.Slides = Backbone.Collection.extend(
+
+class root.application.Slides extends Backbone.Collection
   model: root.application.Slide
-)
 
 class SlideShow extends Backbone.View
-  slides: '#slideShow .slides'
+  slides: '#slides'
   controls: '#slideShow .controls'
-  playPauseControl: '#slideShow .controls .toggle-play-pause'
-  delay: 10000
   currentIndex: 0
-  events:
-    'click .toggler': 'toggleVisibility'
-    'click .toggle-play-pause': 'togglePlayPause'
-    'click .jump-to': 'jumpTo'
-
+    
   slideTemplate: _.template("""
-  <li id="slide-<%= id %>" class="slide <%= layout %>" style="background: url(images/slides/<%= id %>.jpg) no-repeat;">
+  <div id="slide-<%= id %>" class="slide <%= layout %>" style="margin-left: auto; margin-right: auto;background:yellow;float:left;width:766px;height:400px;border:1px solid white;">
     <p class="headline"><%= headline %></p>
     <p class="caption"><%= caption %></p>
-  </li>
+  </div>
   """)
 
-  controlTemplate: _.template("""<li class="slide-control jump-to" data-index="<%= index %>"><%= human_readable_index %></li>""")        
+  controlTemplate: _.template("""<div id="carousel_dots" style="text-align: center; margin-left: auto; margin-right: auto; clear: both;position:relative;"></div>""")        
 
-  render: => 
-    @.collection.each((slide, i) =>
+  render: =>
+    @.collection.each((slide) =>
       $(@slides).append(@slideTemplate(slide.toJSON()))
-      $(@controls).append(@controlTemplate({
-        index: i
-        human_readable_index: ++i
-      }))
     )
+    $(@controls).append(@controlTemplate({}))
     @start()
     @
 
-  rotateSlides: =>
-    current = @currentIndex
-    next = @currentIndex == (@collection.length - 1) ? 0 : @currentIndex + 1
-    @transition(current, next)
 
-  transition: (from, to) =>
-    current = @collection.at(from)
-    next = @collection.at(to)
-    current.getEl().fadeOut('slow', -> 
-      next.getEl().fadeIn('slow')
-    )
-    current.getControl().toggleClass('current')
-    next.getControl().toggleClass('current')
-    @currentIndex = to
-    @
-
-  toggleVisibility: =>
-    slides = $(@slides)
-    slides.toggle()
-    $(@el).toggleClass('collapsed')
-    if slides.is(":visible")
-      @play()
-    else
-      @pause()
-
-  togglePlayPause: =>
-    if @isPlaying()
-      @pause()
-    else
-      @play()
-
-  start: ->
-    root.application.log @collection
-    $('.slides .slide').hide()
-    @collection.at(0).show()
-    @collection.at(0).getControl().toggleClass('current')
-    @play()
-
-  pause: =>
-    if @isPaused()
-      return
-    @state = 'paused'
-    clearInterval(@intervalID)
-    $(@playPauseControl).toggleClass('playing', false)
-    @
-
-  play: =>
-    if @isPlaying()
-      return
-    @state = 'playing';
-    @intervalID = setInterval(@rotateSlides, @delay)
-    $(@playPauseControl).toggleClass('playing', true)
-    @
-
-  jumpTo: (e) =>
-    next = $(e.currentTarget).data('index')
-    @pause()
-    @transition(@currentIndex, next)
-    @
-
-  isPlaying: =>
-      return @.state == 'playing'
-
-  isPaused: =>
-      return !@isPlaying()
-
+  start: =>
+    #root.application.log @collection
+    #$('.slides .slide').hide()
+    #@collection.at(0).show()
+    #@collection.at(0).getControl().toggleClass('current')
+    @carousel = $(@slides).carousel({#root.jq(@slides).carousel({
+      vertical:false,
+      horizontal:true,
+      pagingDiv:"carousel_dots", # div to hold the dots for paging
+      pagingCssName:"carousel_paging", #classname for the paging dots
+      pagingCssNameSelected: "carousel_paging_selected" #classname for the selected page dots
+    })
 
 #-------------------
 
