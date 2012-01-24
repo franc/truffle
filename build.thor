@@ -66,7 +66,7 @@ class Build < Thor::Group
 
   def create_json_data
     puts "creating coffeescript data files"
-    @app_config.each_key do |data_type|
+    @app_config['data'].each_key do |data_type|
       puts "  creating " + @javascripts_dir + "/" + data_type + "_json.coffee"
       f = File.new(@javascripts_dir + "/" + data_type + "_json.coffee", "w")
       f.puts "root = exports ? this"
@@ -94,12 +94,10 @@ class Build < Thor::Group
           app_specific_data[k].nil?
         end
       else
-        data = app_config[data_type]
+        data = app_config['data'][data_type]
       end
-
       data.each do |identifier, data_hash|
-        raise data_hash.to_json
-        HashToCS.convert(data_hash, "  ", proc)
+        HashToCS.convert(data_hash, 2, proc)
       end
       f.puts "]"
       f.close

@@ -13,7 +13,7 @@ module HashToCS
     coffee_script_file.puts output
   end
 
-  HashToCs.convert(ruby_hash, "", proc)
+  HashToCs.convert(ruby_hash, 2, proc)
   
 =end
   
@@ -22,22 +22,29 @@ module HashToCS
   end
 
   #input is a Ruby hash
-  #spaces is a prefix string of spaces used for whitespace significance
+  #spaces is an integer count of spaces to be used as a prefix string for whitespace significance
   #proc acts on the output
-  def HashToCS.convert(input, spaces, proc=defaultProc)
-    if input.is_a? String
-      proc.call spaces + '"' + input + '"' + "\n"
-    elsif input.is_a? Array
+  def HashToCS.convert(input, spaces=0, proc=defaultProc)
+    spaces = " " * spaces
+    case input
+    when String
+      q = if input =~ /\n/
+        '"""'
+      else
+        '"'
+      end
+      proc.call spaces + q + input + q + "\n"
+    when Array
       proc.call spaces + "[\n"
       input.each do |a|
-        convert(a, spaces + "  ", proc)
+        convert(a, spaces.size + 2, proc)
       end
       proc.call spaces + "]\n"
-    elsif input.is_a? Hash
+    when Hash
       proc.call spaces + "{\n"
       input.each do |k, v|
         proc.call spaces + "  #{k}:\n"
-        convert(v, spaces + "    ", proc)
+        convert(v, spaces.size + 4, proc)
       end
       proc.call spaces + "}\n"
     else

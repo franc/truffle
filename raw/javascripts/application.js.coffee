@@ -4,6 +4,7 @@
 #= require "lib/underscore.js"
 #= require "lib/backbone.js"
 #= require_self
+#= require_directory .
 #= require "modules/homeview"
 #= require "modules/slideshow"
 
