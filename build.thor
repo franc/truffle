@@ -50,6 +50,7 @@ class Build < Thor::Group
     puts "copy stylesheets"
     Dir.mkdir(@output_dir + "/stylesheets")
     FileUtils.cp(@raw_dir + "/stylesheets/application.css.scss", @output_dir + "/stylesheets")
+    FileUtils.cp(@raw_dir + "/stylesheets/slideshow.css.scss", @output_dir + "/stylesheets")
     if File.exists?(@raw_dir + "/stylesheets/#{app}.css.scss")
       FileUtils.cp(@raw_dir + "/stylesheets/#{app}.css.scss", @output_dir + "/stylesheets")
     end

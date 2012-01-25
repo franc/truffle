@@ -5,16 +5,19 @@ introduction:
         id: 0
         caption: Building 'static' HTML5 applications.
         content: |
-          <p>using Thor & Middleman to manage multiple similar CoffeeScript & Backbone powered applications. 
+          <section class='middle'>
+          <h2>using Thor & Middleman to manage multiple similar CoffeeScript & Backbone powered applications. </h2>
           <p>@francpaul</p>
           <p>francois@rails.co.za</p>
       1:
         id: 1
         caption: Assumptions
         content: |
-          <ul>
+          <section>
+          <ul class='bulleted'>
             <li>Familiar with web frameworks.</li>
             <li>Want to create html5 applications.</li>
             <li>These applications share a lot of structures.</li>
             <li>Javascript hurts your eyes.</li>
           </ul>
+          </section>
