@@ -41,13 +41,14 @@ transform: scale(0.8);
 
 .slide {
 display: none;
-position: absolute;
+position: relative;
 overflow: hidden;
 width: 900px;
 height: 700px;
-left: 50%;
 top: 50%;
+margin: auto;
 margin-top: -350px;
+padding: auto;
 background-color: #eee;
 background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
 background: -moz-linear-gradient(bottom, #bbd, #fff);
