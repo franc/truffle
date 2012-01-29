@@ -1,7 +1,7 @@
 introduction:
   settings:
     name: Introduction
-    home_image: /images/server.jpg
+    home_image: /images/layers.jpg
   data:
     slides:
       0:
