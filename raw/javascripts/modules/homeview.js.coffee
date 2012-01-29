@@ -39,7 +39,8 @@ class HomeView extends Backbone.View
 <h3> <%= $('title').html() %> </h3> 
 <ul id='links'>
 <% _.each(this.links, function(link) { %><%= link %><% }); %>
-</ul>    
+</ul>
+<img src='#{root.settings.home_image}'/>    
 """)
 #<% _.each(@links, function(link) { %><%= link %><% }); %>
   render: =>

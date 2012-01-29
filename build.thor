@@ -38,7 +38,8 @@ class Build < Thor::Group
 
   def copy_images
     puts "copy images"
-    FileUtils.cp_r(@raw_dir + "/images", @output_dir)
+    FileUtils.cp_r(@raw_dir + "/images/shared/.", @output_dir + "/images")
+    FileUtils.cp_r(@raw_dir + "/images/#{app}/.", @output_dir + "/images")
     puts "."
   end
 
@@ -67,17 +68,31 @@ class Build < Thor::Group
     puts "."
   end
 
-  def create_settings_initialization
-    puts "initializing app config on '/' route " + "config.rb"
+  def create_ruby_settings_initialization
+    puts "initializing app config on '/' route config.rb"
     gsub_file 'config.rb', /^page \'\/\' do\n.*\nend/, "page '/' do\n  @app = YAML::load(File.open('#{@config_dir}/apps.yml'))['#{app}']['settings']\nend"
+    puts "."
+  end
+
+  def create_coffeescript_settings_initialization
+    puts "initializing CS app config"
+    f = File.new(@javascripts_dir + "/settings.js.coffee", "w")
+    f.puts "root = exports ? this"
+    f.puts "root.settings = "
+    proc = Proc.new do |output| 
+      f.puts output
+    end
+    HashToCS.convert(@app_config['settings'], 2, proc)
+    f.puts ""
+    f.close
     puts "."
   end
 
   def create_json_data
     puts "creating coffeescript data files"
     @app_config['data'].each_key do |data_type|
-      puts "  creating " + @javascripts_dir + "/" + data_type + "_json.coffee"
-      f = File.new(@javascripts_dir + "/" + data_type + "_json.coffee", "w")
+      puts "  creating " + @javascripts_dir + "/" + data_type + "_json.js.coffee"
+      f = File.new(@javascripts_dir + "/" + data_type + "_json.js.coffee", "w")
       f.puts "root = exports ? this"
       f.puts "root."+data_type+"_data = ["
       proc = Proc.new do |output| 

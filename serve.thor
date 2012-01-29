@@ -16,7 +16,7 @@ class Serve < Thor::Group
   end
 
   def serve
-    puts "serve #{app}"
+    puts "serve #{app} ..."
     exec "middleman server"
   end
 

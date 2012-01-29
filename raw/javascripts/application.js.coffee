@@ -3,6 +3,7 @@
 #= require "lib/jq.carousel.js"
 #= require "lib/underscore.js"
 #= require "lib/backbone.js"
+#= require "settings.js"
 #= require_self
 #= require_directory .
 #= require "modules/homeview"
