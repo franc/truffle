@@ -1,8 +1,8 @@
 <% content_for :head do %>
-  <title><%= 'app' %></title>
+  <title><%= @app['name'] %></title>
 <% end %>
 <div id="pages">
-  <div id="homePage" class='page'>loading...</div>
+  <div id="homePage" class='page'>loading <%= @app['name'] %>...</div>
   
   <div id="slideShow" class='presentation page'>
     <div id="presentation-counter"></div>

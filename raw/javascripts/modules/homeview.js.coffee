@@ -36,7 +36,7 @@ class HomeView extends Backbone.View
 
 
   template: _.template("""
-<h3> HOME </h3> 
+<h3> <%= $('title').html() %> </h3> 
 <ul id='links'>
 <% _.each(this.links, function(link) { %><%= link %><% }); %>
 </ul>    

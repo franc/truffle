@@ -2,6 +2,8 @@ require File.dirname(__FILE__) + '/lib/hashToCS.rb'
 require 'fileutils'
   
 class Build < Thor::Group
+  include Thor::Actions
+
   # thor build <app>
   argument :app, :type => :string, :description => "specifies which application to build"
 
@@ -65,6 +67,12 @@ class Build < Thor::Group
     puts "."
   end
 
+  def create_settings_initialization
+    puts "initializing app config on '/' route " + "config.rb"
+    gsub_file 'config.rb', /^page \'\/\' do\n.*\nend/, "page '/' do\n  @app = YAML::load(File.open('#{@config_dir}/apps.yml'))['#{app}']['settings']\nend"
+    puts "."
+  end
+
   def create_json_data
     puts "creating coffeescript data files"
     @app_config['data'].each_key do |data_type|
@@ -108,7 +116,7 @@ class Build < Thor::Group
   end
 
   def done
-    puts "done!"
+    puts "done building!"
   end
 
 end

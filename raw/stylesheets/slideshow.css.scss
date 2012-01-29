@@ -1,5 +1,5 @@
 body {
-font: 20px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+font: 20px Menlo;
 padding: 0;
 margin: 0;
 width: 100%;
@@ -16,10 +16,11 @@ left: 0px;
 top: 0px;
 display: block;
 overflow: hidden;
-background: #778;
+background: #181A18;
 }
 
 .slides {
+color: #F06262;
 width: 100%;
 height: 100%;
 left: 0;
@@ -40,6 +41,7 @@ transform: scale(0.8);
 }
 
 .slide {
+font-size: 50px;
 display: none;
 position: relative;
 overflow: hidden;
@@ -49,10 +51,14 @@ top: 50%;
 margin: auto;
 margin-top: -350px;
 padding: auto;
-background-color: #eee;
-background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
-background: -moz-linear-gradient(bottom, #bbd, #fff);
-background: linear-gradient(bottom, #bbd, #fff);
+/*
+background: -webkit-gradient(linear, center top, center bottom, from(#fffff7), to(#aab1b4));
+background: -moz-linear-gradient(top, #fffff7, #aab1b4);
+background: linear-gradient(top, #fffff7, #aab1b4);
+*/
+background: -webkit-gradient(linear, center top, center bottom, from(#000), to(#030303));
+background: -moz-linear-gradient(top, #000, #030303);
+background: linear-gradient(top, #000, #030303);
 -webkit-transition: all 0.25s ease-in-out;
 -moz-transition: all 0.25s ease-in-out;
 -o-transition: all 0.25s ease-in-out;
@@ -140,11 +146,9 @@ transform: translateX(50px) scale(0.8) rotateY(10deg);
 
 /* Content */
 
-@font-face { font-family: 'Junction'; src: url(src/Junction02.otf); }
-@font-face { font-family: 'LeagueGothic'; src: url(src/LeagueGothic.otf); }
 
 header {
-font-family: 'Droid Sans';
+font-family: 'Menlo';
 font-weight: normal;
 letter-spacing: -.05em;
 text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
@@ -153,6 +157,15 @@ top: 25px;
 margin: 0;
 padding: 0;
 font-size: 140%;
+color: F06262;
+}
+
+section, footer {
+font-family: 'Menlo';
+text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+margin: 30px 30px 0;
+display: block;
+overflow: hidden;
 }
 
 h1 {
@@ -161,11 +174,12 @@ display: inline;
 font-weight: normal;
 padding: 0;
 margin: 0;
+color: #A5C261;
 }
 
 h2 {
-font-family: 'Droid Sans';
-color: black;
+font-family: 'Menlo';
+color: #CC7833;
 font-size: 120%;
 padding: 0;
 margin: 20px 0;
@@ -175,14 +189,7 @@ h2:first-child {
 margin-top: 0;
 }
 
-section, footer {
-font-family: 'Droid Sans';
-color: #3f3f3f;
-text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
-margin: 100px 30px 0;
-display: block;
-overflow: hidden;
-}
+
 
 footer {
 font-size: 100%;
@@ -239,7 +246,7 @@ width: 900px;
 
 pre {
 text-align: left;
-font-family: 'Droid Sans Mono', Courier;
+font-family: 'Menlo';
 font-size: 80%;
 padding: 10px 20px;
 background: rgba(255, 0, 0, 0.05);
@@ -251,14 +258,14 @@ border: 1px solid rgba(255, 0, 0, 0.2);
 }
 
 pre select {
-font-family: Monaco, Courier;
+font-family: Menlo;
 border: 1px solid #c61800;
 }
 
 input {
 font-size: 100%;
 margin-right: 10px;
-font-family: Helvetica;
+font-family: Menlo;
 padding: 3px;
 }
 input[type="range"] {
@@ -267,7 +274,7 @@ width: 100%;
 
 button {
 margin: 20px 10px 0 0;
-font-family: Verdana;
+font-family: Menlo;
 }
 
 button.large {
@@ -295,7 +302,7 @@ width: auto;
 div.example {
 display: block;
 padding: 10px 20px;
-color: black;
+color: green;
 background: rgba(255, 255, 255, 0.4);
 -webkit-border-radius: 8px;
 -khtml-border-radius: 8px;
@@ -358,8 +365,8 @@ text-align: center;
 }
 
 #presentation-counter {
-color: #ccc;
-font-size: 70%;
+color: #000ccc;
+font-size: 10%;
 letter-spacing: 1px;
 position: absolute;
 top: 40%;
@@ -389,4 +396,8 @@ background-color: #fff;
 
 ul.bulleted {
 padding-left: 30px;
+}
+
+.color1 {
+  color: #6D9CBE  
 }

@@ -1,14 +1,17 @@
 introduction:
+  settings:
+    name: Introduction
+    home_image: /images/
   data:
     slides:
       0:
         id: 0
-        caption: Building 'static' HTML5 applications.
+        caption: Thor & Middleman
         content: |
           <section class='middle'>
-          <h2>using Thor & Middleman to manage multiple similar CoffeeScript & Backbone powered applications. </h2>
-          <p>@francpaul</p>
-          <p>francois@rails.co.za</p>
+          <p class='color1'>building multiple similar CoffeeScript applications </p>
+          <h2>@francpaul</h2>
+          </section>
       1:
         id: 1
         caption: Assumptions

@@ -29,6 +29,9 @@
 ###
 # Page command
 ###
+page '/' do
+  @app = YAML::load(File.open('/Users/franc/mobile/truffle/config/apps.yml'))['introduction']['settings']
+end
 
 # Per-page layout changes:
 # 
@@ -71,10 +74,10 @@
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
   
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
   
   # Enable cache buster
   # activate :cache_buster
