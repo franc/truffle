@@ -5,15 +5,32 @@ this is my attempt at a start towards an app building framework that can take th
 using thor and middleman for the heavy lifting. coffee-script for the app code.
 
 ...
-I want to create multiple very similar static html applications.
+...
+I've been creating web applications for the past decade. Rails, Merb, Sinatra. And unfortunately Lift, Drupal and .Net
 
-I want access to my helpers i've become used to using rails & sinatra.
-I need a Middleman.
+Developing for mobile devices has always been very attractive, but until recently that meant either developing java applications, or a web0.2-ish WAP interface. HTML5 and webkit support on new devices has unlocked this space for using web standard technologies.
+
+There's still one problem : javascript - it is very flexible and powerful, but oh so ugly and verbose.
+
+AltJS - Node.JS spawned a host of languages that transcompiles to javascript. Most notably CoffeeScript.
+
+->
+
+CoffeeScript has unleashed the power of javascript for the ADD stricken programmer that is me and finally everything was in place for me to start building HTML5 applications.
+
+DRY - I want to create multiple very similar static html applications, and i want to reuse as much code as possible and have few maintenance issues.
+
+example apps that are the same buy slightly different? restuarant menus. museum exhibition guides. 
+
+
+I'm lazy and want access to the helper methods I've become used to using in rails & sinatra apps.
+I want a framework that helps me build static sites.
+
 
 Middleman is - 
  a static site generator based on Sinatra.
  Dozens of templating languages 
- (Haml, Sass, Compass, Slim, CoffeeScript, and more).
+ (Haml, Sass, Compass, Slim, CoffeeScript and more).
  does minification, compression, cache busting
 
  So basically, Middleman takes your sinatra app, and optimises and builds out all the endpoints into static pages.
@@ -23,13 +40,13 @@ Middleman is -
  So if you want to build static sites with as little pain as possible, then Middleman is ready for use and highly recommended.
 
 
-I want a large amount of code reuse over my apps, as they are in fact the very same app, just segmented based on location/market forces.
+I want a large amount of code reuse over my apps, as they are in fact the very same app, just segmented based on branding, location, data or specific market.
 
 So, one way would be to have separate git branches for each app, then just change the relevant pieces on each branch when i want to build and package an update to that app. - messy.
 
 I rather want 1 codebase, that spits out the different apps on request.
 
-So I'm adding a third layer to Middleman.
+So I've added a third layer to Middleman.
 
 This layer is for app configuration, changing layouts, styles, coffeescript modules, and app specific data.
 So I add a /raw directory to the mix. This holds all the code possibilities. the Source directory is then recreated for each app based on app specific configuration. For this I call on the power of Thor. 
@@ -40,16 +57,24 @@ Thor is a simple and efficient tool for building command line utilities.
   I like Thor.
   Middleman already depends on Thor so the gem is already in the bundle.
   Thor::Group is cool. 
-  It a great tool to create generators, since you can define several steps which are invoked in the order they are defined. generators in Rails3.+ is Thor:Group's 
+  It is a great tool to create generators, since you can define several step methods which are invoked in the order they are defined. generators in Rails3.+ is Thor:Groups 
 
 
 
-So - let me show you an example.
+So - to understand what this means, let's look at an example:
 
 @
 
 CODE WALKTHROUGH
 
+
 WRAP UP
+  We've seen how I use Thor to manage building various Middleman apps. I use configuration to tell Thor what should be put in place in order for Middleman to build the proper app.
+  My application CoffeeScript is normalized into modules with as little assumptions made as needed.
+  Modules interact by means of firing and binding to events. In this way I hope to make staying up to date on module changes straight forward.
+
+Near future
+  Apart from building more modules, I will also build yet another Thor layer that will be responsible for packaging and submitting the resulting apps to the various mobile markets or stores.
+  
 
 
