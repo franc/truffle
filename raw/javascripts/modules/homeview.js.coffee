@@ -1,7 +1,7 @@
 root = exports ? this
 
 routes = {
-  home: "route:home"
+  reload: "route:home"
   slides: "route:slides"  
 }
 

@@ -1,5 +1,5 @@
 body {
-font: 20px Menlo;
+font: 40px Menlo;
 padding: 0;
 margin: 0;
 width: 100%;
@@ -90,7 +90,7 @@ font-size: 120%;
 }
 
 .slide .counter {
-color: #999999;
+color: #111;
 position: absolute;
 left: 20px;
 bottom: 20px;
@@ -415,6 +415,9 @@ padding-left: 30px;
 }
 
 .huge {
-  font-size: 80px;
+  font-size: 100px;
 }
 
+.massive {
+  font-size: 400px;
+}

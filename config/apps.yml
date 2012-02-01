@@ -21,94 +21,163 @@ introduction:
         id: 1
         caption: in the past 
         content: |
-          <section class='color4'>code on mobile device meant</section>
-          <section class="middle">
+          <section class='color4 middle'>code on mobile device meant <br/><br/>
             <h1 class='huge'><span class="color3">Java</span></span class="color4">/</span><span class="color1">WAP</span></h1>
           </section>
         notes: |
           I've been building large web applications for the past decade
-          developing for mobile devices has always been very attractive
-          until recently that meant either developing java applications for each model or creating crap WAP interfaces.
+          developing for mobile devices has always been very attractive in its potential, but
+          until recently that meant either developing java applications for each OS or creating crappy WAP interfaces.
+          If you are like me then, those two words could only have a worse effect on you if it ended in .Net
       2:
         id: 2
-        caption: recently
+        caption: <span class='color3'>recently</span>
         content: |
           <section class="middle">
-            <h1>WebKit</h1>
+            <h1 class='color2 huge'>WebKit</h1>
           </section>
           <section class="middle">
-            <h1 class='color3'> HTML5 </h1>
+            <h1 class='color1 huge'> HTML5 </h1>
           </section>
-        notes: HTML5 and webkit support on new devices has unlocked this space for using web standard technologies.
+        notes: |
+          HTML5 and webkit support on new devices has sparked renewed interest for me as I could use web standards that I'm already familiar with.
+          PhoneGap allows us to easily run the same HTML5 application accross different devices with native device api access.
       3:
         id: 3
         caption: ''
         content: |
-          <section class="middle">
+          <section class="middle huge">
           <h2>still one annoyance ... </h2>
           </section>
-        notes: ''
+        notes: Still one annoyance remained till very recently that meant that I would still not enter the mobile development space.
       4:
         id: 4
-        caption: <div class='center color4'>JavaScript</div>
+        caption: <span class='center color4 huge'>JavaScript</span>({});
         content: |
           <section class="middle">
           <img src='/images/server.jpg' />
           </section>
-        notes: javascript  is very flexible and powerful, but has loads of ugly boilerplate.
+        notes: |
+          javascript  is very flexible and powerful, but has loads of ugly boilerplate.
+          You'd have to be a Java programmer to think of JavaScript as clean.
+          JavaScript has mainly been a UI language that we use to move things around in the browser and to make forms more responsive. AJAX made JavaScript a hell of a lot more interesting, but I never imagined I would create whole applications mainly on JavaScript.
       5:
         id: 5
-        caption: AltJS
+        caption: <p class='center color3 huge'>AltJS</p>
         content: |
-          <section>horde of languages </section>
-          <section> transcompiles to javascript</section>
-        notes: Node.JS unleased serverside JS and spawned a host of languages that transcompiles to javascript. Most notably CoffeeScript.
+          <section class='middle'>horde of languages that <h2>transcompile to JavaScript</h2></section>
+        notes: |
+          Node.JS unleased powerful serverside JavaScript on the world and spawned a host of languages that transcompiles to JavaScript. Most notably CoffeeScript.
       6:
         id: 6
-        caption: CoffeeScript
+        caption: <span class='center color1 huge center'>CoffeeScript</span>
         content: |
           <section class="middle">
-            <h1 class='color3'> <img src='/images/cs-logo.jpg' </h1>
+            &nbsp;&nbsp;<img src='/images/cs-logo.png'>
           </section>
-          <section class="middle huge">
-            ->
-          <section>
-        notes: CoffeeScript has unleashed the power of javascript for the ADD stricken programmer that is me and finally everything was in place for me to start building HTML5 applications.
+          <section class="middle huge color2">
+            -> &nbsp;&nbsp;
+          </section>
+        notes: |
+          CoffeeScript has unlocked the power of javascript for ADD stricken programmers like me
+          so finally everything was in place for me to start building HTML5 applications.
       7:
         id: 7
-        caption: framework:
-        content: <section class='middle'>Middleman</section>
+        caption: <p class='cener'>painless static site generation</p>
+        content: |
+          <section class='middle'><img src='/images/mm-logo.jpeg'><h2>http://middlemanapp.com/</h2></section>
         notes: |
-         After spending years building web based applications, I know that there are more efficient ways of building static pages. I was not about to reinvent the wheel completely so I found myself a framework.
+         After spending years building web based applications
+         I know that there are more efficient ways of building static pages.
+         I was not about to reinvent the wheel completely so I found myself a framework.
       8:
         id: 8
         caption: ''
         content: |
-        <section> (source) -> </section>
-        <section>  Middleman</section>
-        notes:
+          <section class='middle'>
+          <p class='color3'>./source/</p>
+          <h2 class='huge'>Middleman</h2>
+          <p class='color3'>./build/</p>
+          </section>
+        notes: |
+          Middleman is - 
+          a static site generator based on Sinatra.
+          It supports many templating languages 
+          (Haml, Sass, Compass, Slim, CoffeeScript and more).
+          does minification, compression, cache busting
+          ...
+          So basically, Middleman takes your sinatra app,
+          optimises and builds out all the endpoints into static pages.
+          You sculpt the app in the source directory. - this is your development environment.
+          then tell middleman to build the app.
+          producing a build directory, ready for deployment to S3 or for packaging to the mobile app stores.
       9:
         id: 9
-        caption:
-        content:
-        notes:
+        caption: ''
+        content: |
+          <section class='middle'><img src='/images/dry.jpg'></section>
+        notes: |
+          I want a large amount of code reuse over my apps, as they are pretty much the very same app,
+          just cosmetically different based on branding, location, data or specific problem they solve.
       10:
         id: 10
-        caption:
-        content:
-        notes:
+        caption: <p class='color2'>I want 1 codebase</p>
+        content: |
+          <section class='center'> <br/><h2>that spits out different apps.</h2><br/><br/>
+          I need another layer on top of Middleman</section>
+        notes: |
+          one way would be to have separate git branches for each app,
+          then just change the relevant pieces on each branch when I want to build and package an update to that app.
+          another option might be git submodules.
+          I'm not convinced that these are not the right options, but they are rather messy.
       11:
         id: 11
-        caption:
-        content:
-        notes:
+        caption: <h3 class='color4'>I call on the power of</h3>
+        content: |
+          <section class='center'><img src="/images/thor.jpg"/><section>
+        notes: |
+          This layer is for app configuration, changing layouts, styles, coffeescript modules, and app specific data.
       12:
         id: 12
-        caption:
-        content:
-        notes:
+        caption: <p class='huge color1'>Thor</p>
+        content: |
+          <section class='middle color2'>a simple and efficient tool for building command line utilities</section>
+          <p>simalar to Rake</p>
+        notes: |
+          rake and thor is very similar, although rake is very project specific while thor is more general. 
+          As I want to move and create files and directories, run various commands, and do it in a simple structured way. I could use either.
+          I like Thor.
+          Middleman already depends on Thor so the gem is already in the bundle.
+          Thor::Group is cool: define several step methods which are invoked in the order they are defined
+          Rails3 generators is Thor:Group
       13:
         id: 13
-        caption:
-        content:
-        notes:
+        caption: ''
+        content: |
+          <section class='center'>
+          <br/><br/>
+          <p class='color3'>./raw/</p>
+          <h2 class='huge'>Thor</h2>
+          <p class='color3'>./source/</p>
+          <h2>Middleman</h2>
+          <p class='color3'>./build/</p>
+          </section>
+        notes:  |
+          The /raw/ directory holds all the code possibilities.
+          The /source/ directory is then recreated for each app based on app specific configuration.
+      14:
+        id: 14
+        caption: What does this look like in practice?
+        content: <section class='middle color4'>let's look at an example</section>
+        notes: so what does this look like when we put it all together.
+      15:
+        id: 15
+        caption: ''
+        content: <br/><section class='center massive color1'>@</section>
+        notes: |
+          Experiment - Show of hands, who instinctively saw that symbol and thought 'this'.
+          That's native CoffeeScript thinkers.
+          Who read it as 'self' or 'instance' - that's Rubyists
+          Who thought of Twitter?
+
+      
