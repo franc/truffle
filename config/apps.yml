@@ -1,3 +1,7 @@
+wrap:
+  settings:
+    name: Wrap-up
+    home_image: /images/poollayer.jpg
 introduction:
   settings:
     name: Introduction
@@ -52,3 +56,59 @@ introduction:
           <img src='/images/server.jpg' />
           </section>
         notes: javascript  is very flexible and powerful, but has loads of ugly boilerplate.
+      5:
+        id: 5
+        caption: AltJS
+        content: |
+          <section>horde of languages </section>
+          <section> transcompiles to javascript</section>
+        notes: Node.JS unleased serverside JS and spawned a host of languages that transcompiles to javascript. Most notably CoffeeScript.
+      6:
+        id: 6
+        caption: CoffeeScript
+        content: |
+          <section class="middle">
+            <h1 class='color3'> <img src='/images/cs-logo.jpg' </h1>
+          </section>
+          <section class="middle huge">
+            ->
+          <section>
+        notes: CoffeeScript has unleashed the power of javascript for the ADD stricken programmer that is me and finally everything was in place for me to start building HTML5 applications.
+      7:
+        id: 7
+        caption: framework:
+        content: <section class='middle'>Middleman</section>
+        notes: |
+         After spending years building web based applications, I know that there are more efficient ways of building static pages. I was not about to reinvent the wheel completely so I found myself a framework.
+      8:
+        id: 8
+        caption: ''
+        content: |
+        <section> (source) -> </section>
+        <section>  Middleman</section>
+        notes:
+      9:
+        id: 9
+        caption:
+        content:
+        notes:
+      10:
+        id: 10
+        caption:
+        content:
+        notes:
+      11:
+        id: 11
+        caption:
+        content:
+        notes:
+      12:
+        id: 12
+        caption:
+        content:
+        notes:
+      13:
+        id: 13
+        caption:
+        content:
+        notes:
