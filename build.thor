@@ -60,7 +60,6 @@ class Build < Thor::Group
     puts "."
   end
 
-
   def get_app_config
     puts "fetching config"
     conf = YAML::load( File.open(@config_dir + "/" + 'apps.yml') )
