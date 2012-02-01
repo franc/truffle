@@ -1,6 +1,4 @@
 #= require "lib/jquery-1.7.1.js"
-#= require "lib/jq.mobi.js"
-#= require "lib/jq.carousel.js"
 #= require "lib/underscore.js"
 #= require "lib/backbone.js"
 #= require "settings.js"

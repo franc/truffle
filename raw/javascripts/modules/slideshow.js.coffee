@@ -1,28 +1,22 @@
 root = exports ? this
 
-
 class root.application.Slide extends Backbone.Model
-  el: $("#slide-#{@id}")
+  el: "#slide-#{@id}"
   _states: [ "distant-slide", "far-past", "past", "current", "future", "far-future", "distant-slide" ]
   _visited: false
   _currentState: ""
   show: ->
-    @el.show()
+    $(@el).removeClass @_states.join(" ")
+    $(@el).addClass 'current'
+    @_currentState = 'current'
+    $(@el).show()
+    @
   setState: (state) ->
-    root.application.log "setState #{state} : id #{@id}"
     state = @_states[state]  unless typeof state is "string"
     if state is "current" and not @_visited
-        @_visited = true
-        @el.show()
-        #@_makeBuildList()
-      @el.removeClass @_states.join(" ")
-      @el.addClass state
-      @_currentState = state
-      #_t = this
-      #setTimeout (->
-      #  _t._runAutos()
-      #), 400
-
+      @_visited = true
+     @show()
+           
 class root.application.Slides extends Backbone.Collection
   model: root.application.Slide
 
@@ -30,7 +24,6 @@ class root.application.Slides extends Backbone.Collection
 
 class SlideShow extends Backbone.View
   slides: '#slides'
-  controls: '#slideShow .controls'
   current: 0
     
   slideTemplate: _.template("""
@@ -41,31 +34,33 @@ class SlideShow extends Backbone.View
   </div>
   """)
 
-  controlTemplate: _.template("""<div id="carousel_dots" style="text-align: center; margin-left: auto; margin-right: auto; clear: both;position:relative;"></div>""")        
-
   render: ->
     root.application.log @collection
     @collection.each((slide) =>
       $(@slides).append(@slideTemplate(slide.toJSON()))
     )
-    #$(@controls).append(@controlTemplate({}))
+    
     @start()
   
-  _update: =>
-    root.application.log("update: current #{@current}")
+  _update: ->
+    root.application.log("slide #{@current + 1}")
     return  if @current is null
     $("#presentation-counter").innerText = @current
     $(".slide").hide()
+    
+    root.application.log @collection.at(@current).attributes.caption.replace(/(<([^>]+)>)/ig,"")
+    root.application.log @collection.at(@current).attributes.content.replace(/(<([^>]+)>)/ig,"")
+    root.application.log '<>'
+    root.application.log @collection.at(@current).attributes.notes
+    root.application.log '-----------'
     $("#slide-#{@current}").show()
-    #window.location.hash = "slide" + @current
+    
     x = @current# - 1
     while x < @current + 7
-      @collection[x - 4].setState(Math.max(0, x - @current))  if @collection[x - 4]
+      @collection.at(x - 4).setState(Math.max(0, x - @current))  if @collection.at(x - 4)
       x++
     @
   next: ->
-    #unless @_slides[@current - 1].buildNext()
-    ##
     @current = Math.min(@current + 1, @collection.length - 1)
     @_update()
 
@@ -74,7 +69,6 @@ class SlideShow extends Backbone.View
     @_update()
 
   go: (num) ->
-    #history.replaceState @current, "Slide " + @current, "#slide" + @current  if history.pushState and @current isnt num
     @current = num
     @_update()
   handleKeys: (e) ->
@@ -104,7 +98,7 @@ root.application.bind("application:launch", ->
 
 #bind custom routes
 root.application.bind "route:slides", ->
-  @log('route:slides')
-  @module("slideShow").render()
+  root.application.log('route:slides')
+  root.application.module("slideShow").render()
   root.application.showPage('slideShow')
 ,root.application

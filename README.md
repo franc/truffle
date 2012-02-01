@@ -6,11 +6,14 @@ using thor and middleman for the heavy lifting. coffee-script for the app code.
 
 ...
 ...
-I've been creating web applications for the past decade. Rails, Merb, Sinatra. And unfortunately Lift, Drupal and .Net
+2.
+I've been building large web applications for the past decade and developing for mobile devices has always been very attractive, but until recently that meant either developing java applications, or a web0.2-ish WAP interface.
 
-Developing for mobile devices has always been very attractive, but until recently that meant either developing java applications, or a web0.2-ish WAP interface. HTML5 and webkit support on new devices has unlocked this space for using web standard technologies.
+3.
+HTML5 and webkit support on new devices has unlocked this space for using web standard technologies.
 
-There's still one problem : javascript - it is very flexible and powerful, but oh so ugly and verbose.
+4.
+There's still one problem : javascript - it is very flexible and powerful, but oh so ugly and verbose with loads of boilerplate.
 
 AltJS - Node.JS spawned a host of languages that transcompiles to javascript. Most notably CoffeeScript.
 
@@ -18,23 +21,25 @@ AltJS - Node.JS spawned a host of languages that transcompiles to javascript. Mo
 
 CoffeeScript has unleashed the power of javascript for the ADD stricken programmer that is me and finally everything was in place for me to start building HTML5 applications.
 
+Over the years I have wanted to build a number of applications for mobile devices. They shared a lot of typical functionality, but each had its own identity and target market.
+
 DRY - I want to create multiple very similar static html applications, and i want to reuse as much code as possible and have few maintenance issues.
 
-example apps that are the same buy slightly different? restuarant menus. museum exhibition guides. 
+example apps that are the same but slightly different? restuarant menus. museum exhibition guides. 
 
 
-I'm lazy and want access to the helper methods I've become used to using in rails & sinatra apps.
+I'm lazy and want access to the helper methods I've become used to while building in rails & sinatra apps.
 I want a framework that helps me build static sites.
 
 
 Middleman is - 
  a static site generator based on Sinatra.
- Dozens of templating languages 
+ It supports many templating languages 
  (Haml, Sass, Compass, Slim, CoffeeScript and more).
  does minification, compression, cache busting
 
  So basically, Middleman takes your sinatra app, and optimises and builds out all the endpoints into static pages.
- You sculpt the app in source directory. - this is your development environment.
+ You sculpt the app in the source directory. - this is your development environment.
  then tell middleman to build the app. That produces a build directory, that is ready for deployment to S3 or for packaging to the mobile app stores.
 
  So if you want to build static sites with as little pain as possible, then Middleman is ready for use and highly recommended.
@@ -76,5 +81,11 @@ WRAP UP
 Near future
   Apart from building more modules, I will also build yet another Thor layer that will be responsible for packaging and submitting the resulting apps to the various mobile markets or stores.
   
+I don't know how this building tool will handle my apps when they start to diverge fundamentally, I expect that I will eventually have to maintain a number of seperate middleman apps. But as a quick start for managing a number of similar apps, I find this toolset pretty useful.
+
+I hope you have better solutions to the problem for me, and that you will share them with me tonight.
+
+questions.any?
+
 
 

@@ -6,21 +6,49 @@ introduction:
     slides:
       0:
         id: 0
-        caption: Thor & Middleman
+        caption: <div class='center'>Thor & Middleman</div>
         content: |
           <section class='middle'>
           <p class='color1'>building multiple similar CoffeeScript applications </p>
           <h2>@francpaul</h2>
           </section>
+        notes: 'Introduction start'
       1:
         id: 1
-        caption: Assumptions
+        caption: in the past 
         content: |
-          <section>
-          <ul class='bulleted'>
-            <li>Familiar with web frameworks.</li>
-            <li>Want to create html5 applications.</li>
-            <li>These applications share a lot of structures.</li>
-            <li>Javascript hurts your eyes.</li>
-          </ul>
+          <section class='color4'>code on mobile device meant</section>
+          <section class="middle">
+            <h1 class='huge'><span class="color3">Java</span></span class="color4">/</span><span class="color1">WAP</span></h1>
           </section>
+        notes: |
+          I've been building large web applications for the past decade
+          developing for mobile devices has always been very attractive
+          until recently that meant either developing java applications for each model or creating crap WAP interfaces.
+      2:
+        id: 2
+        caption: recently
+        content: |
+          <section class="middle">
+            <h1>WebKit</h1>
+          </section>
+          <section class="middle">
+            <h1 class='color3'> HTML5 </h1>
+          </section>
+        notes: HTML5 and webkit support on new devices has unlocked this space for using web standard technologies.
+      3:
+        id: 3
+        caption: ''
+        content: |
+          <section class="middle">
+          <h2>still one annoyance ... </h2>
+          </section>
+        notes: ''
+      4:
+        id: 4
+        caption: <div class='center color4'>JavaScript</div>
+        content: |
+          <section class="middle">
+          <img src='/images/server.jpg' />
+          </section>
+        notes: javascript  is very flexible and powerful, but has loads of ugly boilerplate.
