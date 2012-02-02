@@ -38,8 +38,7 @@ class Application
       @log(@module('slideShow'))
       @trigger("route:home")
   log: (msg) ->
-    #TODO middlman config boolean flag to decide how/if to log
-    if true
+    if root.settings.log
       console.log(msg)
     return msg
   module: (name, mod = {}) =>

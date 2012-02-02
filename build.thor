@@ -54,9 +54,13 @@ class Build < Thor::Group
     Dir.mkdir(@output_dir + "/stylesheets")
     FileUtils.cp(@raw_dir + "/stylesheets/application.css.scss", @output_dir + "/stylesheets")
     FileUtils.cp(@raw_dir + "/stylesheets/slideshow.css.scss", @output_dir + "/stylesheets")
+    css_files =  ["application.css", "slideshow.css"]
     if File.exists?(@raw_dir + "/stylesheets/#{app}.css.scss")
       FileUtils.cp(@raw_dir + "/stylesheets/#{app}.css.scss", @output_dir + "/stylesheets")
+      css_files << app + ".css"
     end
+    #dynamically build layout.html.erb stylesheet include tag.
+    gsub_file "#{@output_dir}/layout.erb", /\<\%\= stylesheet_link_tag.*\%\>/, "<%= stylesheet_link_tag '#{css_files.join("', '")}' %>"
     puts "."
   end
 

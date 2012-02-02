@@ -2,10 +2,62 @@ wrap:
   settings:
     name: Wrap-up
     home_image: /images/poollayer.jpg
+    log: true
+  data:
+    slides:
+      0:
+        id: 0
+        caption: <h2 class='color2'>recap</h2>
+        content: |
+          <section class='color1'>
+          Thor is easy and super powerful.
+          </section><br/>
+          <section class='color3'>
+          Middleman generates, optimises and structures HTML5.
+          </section><br/>
+          <section class='color4'>
+          CoffeeScript modules communicate through events.
+          </section>
+        notes: |
+          We've seen how I use Thor to manage building various Middleman apps. I use configuration to tell Thor what should be put in place in order for Middleman to build the proper app.
+          My application CoffeeScript is normalized into modules with as little assumptions made as needed.
+          Modules interact by means of firing and binding to events. In this way I hope to make staying up to date on module changes straight forward.
+      1:
+        id: 1
+        caption: ''
+        content: |
+          <section class='middle small'>
+          but does it scale?
+          </section>
+        notes: |
+          What I mean is; will this aproach work for your apps?
+          probably not. your apps really need to be very similar.
+          You'll need to be able to break your app into seperate functional and visual bits. 
+          This building script won't handle my apps when they start to diverge fundamentally.
+          I will eventually have to maintain a number of seperate middleman apps. 
+          But for managing a number of similar apps, I think these tools are pretty useful.
+      2:
+        id: 2
+        caption: <h2 class='center color4'>suggestions</h2>
+        content: |
+          <section class='center'>
+          <br/><br/>
+          please email me.
+          <br/><br/>
+          <h2>francois@rails.co.za</h2>
+          </section>
+        notes: ''
+      3:
+        id: 3
+        caption: ''
+        content: |
+          <section class='middle huge color1'>&nbsp;? || #</section>
+        notes: any questions or comments
 introduction:
   settings:
     name: Introduction
     home_image: /images/layers.jpg
+    log: true
   data:
     slides:
       0:

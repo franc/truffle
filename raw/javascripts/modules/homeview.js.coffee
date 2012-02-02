@@ -1,8 +1,8 @@
 root = exports ? this
 
 routes = {
-  reload: "route:home"
-  slides: "route:slides"  
+  #reload: "route:home"
+  start: "route:slides"  
 }
 
 class HomeView extends Backbone.View
