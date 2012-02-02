@@ -6,9 +6,7 @@ class Serve < Thor::Group
   # thor serve <app>
   argument :app, :type => :string, :description => "specifies which application to build"
 
-  desc "builds app source ready for release,and serves the middleman app"
-
-  #attr_accessor :app_config, :output_dir, :javascipts_dir, :config_dir, :raw_dir
+  desc "builds app source ready for release, and serves the middleman app"
 
   def build
     puts 'build...'

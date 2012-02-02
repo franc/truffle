@@ -59,7 +59,7 @@ class Build < Thor::Group
       FileUtils.cp(@raw_dir + "/stylesheets/#{app}.css.scss", @output_dir + "/stylesheets")
       css_files << app + ".css"
     end
-    #dynamically build layout.html.erb stylesheet include tag.
+    #dynamically build layout.html.erb stylesheet link tag.
     gsub_file "#{@output_dir}/layout.erb", /\<\%\= stylesheet_link_tag.*\%\>/, "<%= stylesheet_link_tag '#{css_files.join("', '")}' %>"
     puts "."
   end

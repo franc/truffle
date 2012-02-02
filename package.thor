@@ -3,7 +3,7 @@ require 'fileutils'
   
 class Package < Thor::Group
   include Thor::Actions
-  # thor serve <app>
+  # thor package <app>
   argument :app, :type => :string, :description => "specifies which application to build"
 
   desc "builds app source ready for release, and package it into the app directory"
