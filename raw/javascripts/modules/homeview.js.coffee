@@ -42,7 +42,7 @@ class HomeView extends Backbone.View
 """)
 
   render: =>
-    @delegateEvents()#[@events])
+    @delegateEvents()
     root.application.log('homeView render')
     $(@el).html(@template(@links))
     @
